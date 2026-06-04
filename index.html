@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Expense Tracker Pro</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+<body>
+
+<div class="sidebar">
+
+<h2>💰 ExpensePro</h2>
+
+<button onclick="showPage('dashboard')">
+🏠 Dashboard
+</button>
+
+<button onclick="showPage('expense')">
+➕ Add Expense
+</button>
+
+<button onclick="showPage('analytics')">
+📊 Analytics
+</button>
+
+<button onclick="showPage('reports')">
+📄 Reports
+</button>
+
+<button onclick="toggleTheme()">
+🌙 Theme
+</button>
+
+</div>
+
+<div class="main-content">
+
+<!-- Dashboard -->
+
+<div id="dashboard" class="page active">
+
+<h1>Dashboard</h1>
+
+<div class="cards">
+
+<div class="card">
+<h3>Total Expense</h3>
+<h2 id="totalExpense">₹0</h2>
+</div>
+
+<div class="card">
+<h3>Budget</h3>
+<h2 id="budgetDisplay">₹15000</h2>
+</div>
+
+<div class="card">
+<h3>Remaining</h3>
+<h2 id="remaining">₹15000</h2>
+</div>
+
+<div class="card">
+<h3>Top Category</h3>
+<h2 id="topCategory">-</h2>
+</div>
+
+</div>
+
+<div class="progress-container">
+<div id="progressBar"></div>
+</div>
+
+</div>
+
+<!-- Expense Page -->
+
+<div id="expense" class="page">
+
+<h1>Add Expense</h1>
+
+<input
+type="number"
+id="amount"
+placeholder="Enter Amount">
+
+<select id="category">
+
+<option>Food</option>
+<option>Travel</option>
+<option>Shopping</option>
+<option>Education</option>
+<option>Medical</option>
+<option>Entertainment</option>
+<option>Others</option>
+
+</select>
+
+<input
+type="text"
+id="note"
+placeholder="Enter Note">
+
+<button onclick="addExpense()">
+Add Expense
+</button>
+
+<br><br>
+
+<input
+type="number"
+id="budgetInput"
+placeholder="Set Budget">
+
+<button onclick="setBudget()">
+Set Budget
+</button>
+
+<br><br>
+
+<input
+type="text"
+id="searchBox"
+placeholder="Search Expense">
+
+<h2>Expense History</h2>
+
+<div id="historyList"></div>
+
+</div>
+
+<!-- Analytics -->
+
+<div id="analytics" class="page">
+
+<h1>Analytics</h1>
+
+<div class="chart-box">
+<canvas id="expenseChart"></canvas>
+</div>
+
+</div>
+
+<!-- Reports -->
+
+<div id="reports" class="page">
+
+<h1>Reports</h1>
+
+<button onclick="downloadPDF()">
+📄 Download PDF
+</button>
+
+<div class="report-box">
+
+<h3>Total Expenses</h3>
+<p id="reportTotal">₹0</p>
+
+<h3>Top Category</h3>
+<p id="reportCategory">-</p>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
